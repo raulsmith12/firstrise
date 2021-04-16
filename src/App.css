@@ -33,6 +33,24 @@ h2, h3, .menu-title {
   color: rgb(112, 76, 182);
 }
 
+@media screen and (min-width: 900px) {
+  .header-logo {
+    width: 8%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header-logo {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-logo {
+    width: 45%;
+  }
+}
+
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
