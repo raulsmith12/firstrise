@@ -1,8 +1,26 @@
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css);
 @import url(https://fonts.googleapis.com/css?family=Lobster);
 
-h2, h3, .menu-title {
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.main-container {
+  height: 100%;
+}
+
+h2, h3, .menu-title, h4, .button-title {
   font-family: 'Lobster', cursive;
+}
+
+.prod-desc {
+  font-family: 'Lobster', cursive;
+  font-size: 2.3rem;
+  font-weight: 200;
 }
 
 .App {
@@ -12,6 +30,35 @@ h2, h3, .menu-title {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.border-primary {
+  border-color: #F2513F;
+}
+
+.border-secondary {
+  border-color: #f89d28 !important;
+}
+
+.btn-primary {
+  background-color: #F2513F;
+  border-color: #F2513F;
+}
+
+.menu-bg {
+  background: rgb(126, 109, 89);
+  background: radial-gradient(circle, rgba(249,155,39,1) 0%, rgba(251,171,58,1) 100%);
+  color: white;
+  height: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #f89d28;
+  border-color: #f89d28;
+}
+
+.btn-secondary {
+  background-color: #f89d28;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,7 +82,7 @@ h2, h3, .menu-title {
 
 @media screen and (min-width: 900px) {
   .header-logo {
-    width: 8%;
+    width: 6%;
   }
 }
 

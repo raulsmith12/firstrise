@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import WooCommerce from '../WooCommerce';
 
 const Order = () => {
@@ -19,33 +20,77 @@ const Order = () => {
             })
     }, [])
 
+    const loading = <div>loading</div>
+
     return (
-        <Container className="pt-5 mt-2">
-            <h2 className="display-3">Menu</h2>
-            <h3>All Day Breakfast</h3>
-            {menuItems.map(item => {
-                if (item.categories[0].slug === 'breakfast') {
-                    return (
-                        <div>{item.name}</div>
-                    )
-                }
-            })}
-            <h3>Lunch</h3>
-            {menuItems.map(item => {
-                if (item.categories[0].slug === 'lunch') {
-                    return (
-                        <div>{item.name}</div>
-                    )
-                }
-            })}
-            <h3>Coffee</h3>
-            {menuItems.map(item => {
-                if (item.categories[0].slug === 'drinks') {
-                    return (
-                        <div>{item.name}</div>
-                    )
-                }
-            })}
+        <Container fluid className="pt-5 mt-5 menu-bg">
+            <Row>
+                <Col>
+                    <Container>
+                        <h2 className="display-3">Menu</h2>
+                        <h3>
+                            <i className="fas fa-bacon"></i>&nbsp;&nbsp;
+                            All Day Breakfast
+                        </h3>
+                        {menuItems === undefined ? loading : menuItems.map(item => {
+                            if (item.categories[0].slug === 'breakfast') {
+                                return (
+                                    <div key={item.id} className="px-1 py-1">
+                                        <Button variant="primary" className="menu-title">
+                                            <Link to={`products/${item.id}`} className="text-white">
+                                                <h4>
+                                                    <i className="fas fa-arrow-circle-right"></i>&nbsp;&nbsp;
+                                                    {item.name}
+                                                </h4>
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                )
+                            }
+                        })}
+                        <h3>
+                            <i className="fas fa-bread-slice"></i>&nbsp;&nbsp;
+                            Lunch
+                        </h3>
+                        {menuItems === undefined ? loading : menuItems.map(item => {
+                            if (item.categories[0].slug === 'lunch') {
+                                return (
+                                    <div key={item.id} className="px-1 py-1">
+                                        <Button variant="primary" className="menu-title">
+                                            <Link to={`products/${item.id}`} className="text-white">
+                                                <h4>
+                                                    <i className="fas fa-arrow-circle-right"></i>&nbsp;&nbsp;
+                                                    {item.name}
+                                                </h4>
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                )
+                            }
+                        })}
+                        <h3>
+                            <i className="fas fa-coffee"></i>&nbsp;&nbsp;
+                            Coffee
+                        </h3>
+                        {menuItems === undefined ? loading : menuItems.map(item => {
+                            if (item.categories[0].slug === 'drinks') {
+                                return (
+                                    <div key={item.id} className="px-1 py-1">
+                                        <Button variant="primary" className="menu-title">
+                                            <Link to={`products/${item.id}`} className="text-white">
+                                                <h4>
+                                                    <i className="fas fa-arrow-circle-right"></i>&nbsp;&nbsp;
+                                                    {item.name}
+                                                </h4>
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                )
+                            }
+                        })}
+                    </Container>
+                </Col>
+            </Row>
         </Container>
     )
 };
